@@ -1,0 +1,46 @@
+/* Colors */
+$c-blue-primary: #17a2b8;
+$c-white: #fff;
+$c-gray-primary: #D3D3D3;
+$c-lightgray-primary: #f3f3f3;
+$c-lightgray-secondary: #f2f4f5;
+$c-dark-gray-primary: #4b545c;
+$c-red-primary: #FF0000;
+$c-red-secondary: #F08080;
+
+/* Colors assignment */
+$c-sidebar-divider-border: $c-dark-gray-primary;
+$c-nav-link-active: $c-blue-primary;
+$c-button-exception-work-border: $c-gray-primary;
+$c-button-exception-notwork-bg: $c-gray-primary;
+$c-btn-checked-border: $c-blue-primary;
+$c-react-datepicker__header-bg: $c-blue-primary;
+$c-react-datepicker__current-month: $c-white;
+$c-react-datepicker__navigation--previous: $c-white;
+$c-react-datepicker__navigation--next: $c-white;
+$c-react-datepicker__day-bg: $c-blue-primary;
+$c-react-datepicker__day-name: $c-white;
+$c-react-datepicker__day--highlighted-base-holidays: $c-blue-primary;
+$c-react-datepicker__day--highlighted-base-holidays-border: $c-white;
+$c-react-datepicker__day--highlighted-base-holidays-bg: $c-gray-primary;
+$c-react-datepicker__day--highlighted-public-holidays: $c-white;
+$c-react-datepicker__day--highlighted-public-holidays-border: $c-white;
+$c-react-datepicker__day--highlighted-public-holidays-bg: $c-red-secondary;
+$c-react-datepicker__day--highlighted-exception-work: $c-blue-primary;
+$c-react-datepicker__day--highlighted-exception-work-border: $c-blue-primary;
+$c-react-datepicker__day--highlighted-exception-work-bg: $c-white;
+$c-react-datepicker__day--highlighted-exception-notwork: $c-blue-primary;
+$c-react-datepicker__day--highlighted-exception-notwork-border: $c-blue-primary;
+$c-react-datepicker__day--highlighted-exception-notwork-bg: $c-gray-primary;
+$c-react-datepicker__day--selected: $c-blue-primary;
+$c-validation-message-container: $c-red-primary;
+$c-fa-remove: $c-red-primary;
+$c-loader: $c-blue-primary;
+$c-loader-border: $c-lightgray-primary;
+$c-bg-gray-light: $c-lightgray-secondary;
+$c-page-item-active-link-bg: $c-blue-primary;
+$c-page-item-active-link-border: $c-blue-primary;
+
+/* Animations duration */
+$loader-animation: 2s;
+$animate-bottom-animation-duration: 1s;

@@ -1,0 +1,187 @@
+/* Header */
+.brand-link {
+  padding: 0.5rem;
+  line-height: 1.2;
+}
+
+.user-panel {
+  .info {
+    padding: 10px 5px 10px 10px;
+  }
+}
+
+.user-panel {
+  img {
+    width: 2.6rem;
+    height: auto;
+  }
+}
+
+/* Sidebar */
+.sidebar-divider {
+  border-bottom: 1px solid $c-sidebar-divider-border;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+.nav-item {
+  padding: 5px 0;
+}
+
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active {
+  background-color: $c-nav-link-active;
+}
+
+/* Date picker */
+.react-datepicker__header {
+  text-align: center;
+  background-color: $c-react-datepicker__header-bg;
+}
+
+.react-datepicker__current-month {
+  color: $c-react-datepicker__current-month;
+}
+
+.react-datepicker__navigation--previous {
+  border-right-color: $c-react-datepicker__navigation--previous;
+}
+
+.react-datepicker__navigation--next {
+  border-left-color: $c-react-datepicker__navigation--next;
+}
+
+.react-datepicker__day {
+  &:hover {
+    border-radius: unset;
+    background-color: lighten($c-react-datepicker__day-bg, 15%);
+  }
+
+  &--highlighted {
+    border-radius: unset;
+  }
+}
+
+.react-datepicker__day-name {
+  color: $c-react-datepicker__day-name;
+}
+
+.react-datepicker__day--highlighted-base-holidays {
+  border: 1px solid $c-react-datepicker__day--highlighted-base-holidays-border;
+  color: $c-react-datepicker__day--highlighted-base-holidays;
+  background-color: $c-react-datepicker__day--highlighted-base-holidays-bg;
+}
+
+.react-datepicker__day--highlighted-public-holidays {
+  border: 1px solid $c-react-datepicker__day--highlighted-public-holidays-border;
+  color: $c-react-datepicker__day--highlighted-public-holidays;
+  background-color: $c-react-datepicker__day--highlighted-public-holidays-bg;
+}
+
+.react-datepicker__day--highlighted-exception-work {
+  border: 1px solid $c-react-datepicker__day--highlighted-exception-work;
+  color: $c-react-datepicker__day--highlighted-exception-work-border;
+  background-color: $c-react-datepicker__day--highlighted-exception-work-bg;
+}
+
+.react-datepicker__day--highlighted-exception-notwork {
+  border: 1px solid $c-react-datepicker__day--highlighted-exception-notwork;
+  color: $c-react-datepicker__day--highlighted-exception-notwork-border;
+  background-color: $c-react-datepicker__day--highlighted-exception-notwork-bg;
+}
+
+.react-datepicker__day--selected {
+  background-color: $c-react-datepicker__day--selected;
+  border-radius: unset;
+}
+
+/* Exception buttons */
+.button-exception {
+  height: 25px;
+  padding: 0 16px;
+  text-align: center;
+  display: inline-block;
+}
+
+.button-exception-work {
+  border: 1px solid $c-button-exception-work-border;
+  background-color: white;
+}
+
+.button-exception-notwork {
+  background-color: $c-button-exception-notwork-bg;
+}
+
+.checked {
+  border: 1px solid $c-btn-checked-border;
+}
+
+/* Exceptions */
+.exceptions-list {
+  height: auto;
+}
+
+.fa-remove {
+  color: $c-fa-remove;
+
+  &:hover {
+    color: darken($c-fa-remove, 10%)
+  }
+}
+
+.validation-message-container {
+  color: $c-validation-message-container;
+}
+
+.exception-delete {
+  border: none;
+  background-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+/* Exceptions table*/
+table.dataTable.exceptions-table tbody td {
+  border: none;
+  padding: 0.2rem;
+}
+
+.dataTable.exceptions-table .bg-gray-light {
+  background-color: $c-bg-gray-light;
+}
+
+.content-fixed {
+  min-width: 768px;
+}
+
+.search-input {
+  width: 150px;
+}
+
+/* Center the loader */
+.loader {
+  position: relative;
+  left: 50%;
+  top: 40%;
+  z-index: 1;
+  margin: -60px 0 0 -60px;
+  border-left: 16px solid $c-loader-border;
+  border-top: 16px solid $c-loader;
+  border-right: 16px solid $c-loader-border;
+  border-bottom: 16px solid $c-loader-border;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin $loader-animation linear infinite;
+  animation: spin $loader-animation linear infinite;
+}
+
+.page-item.active .page-link {
+  background-color: $c-page-item-active-link-bg;
+  border-color: $c-page-item-active-link-border;
+}

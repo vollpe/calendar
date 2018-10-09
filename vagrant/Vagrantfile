@@ -1,0 +1,67 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+    config.vm.provider "virtualbox" do |v|
+        v.memory = 2048
+        v.cpus = 2
+    end
+
+    config.vm.box = "cmrowles/ubuntu-16"
+    config.vm.box_check_update = false
+    config.vm.network "forwarded_port", guest: 8000, host: 8000, host_ip: "127.0.0.1"
+    config.vm.network "forwarded_port", guest: 3000, host: 3000
+    config.vm.network "forwarded_port", guest: 5000, host: 5000
+    config.vm.hostname = "localhost"
+    config.vm.network "private_network", ip: "192.168.33.10"
+
+#start of shell provisioning   
+    config.vm.provision "shell", inline: <<-SHELL
+    echo "Provisioning Virtual Machine..."    
+
+#############  Common: Install required apps
+    sudo apt-get update -y
+    sudo apt-get upgrade -y
+    sudo npm i -g webpack
+    sudo npm install -g serve
+    sudo apt-get install mysql-client mysql-server php-mysql -y
+
+############# Common: git clone and checkout
+    git init
+    git clone https://l.glasunova:A65b65565@git.syberry.com/syberry-academy-capstone/sep2019-team1.git
+    git fetch
+    cp -r sep2019-team1 /home/vagrant/backend
+
+############# Backend
+    cd /home/vagrant/backend
+    git reset --hard
+    sudo git checkout backend
+    cd /home/vagrant/backend/backend
+
+    # mysql config for local user 'vagrant' and remote user 'vagrant'
+    composer install
+    php bin/console doctrine:database:create
+    # php bin/console doctrine:migrations:migrate
+    sudo mysql -uroot -proot project < /vagrant/sql/project_facilitator_working_time.sql
+    sudo mysql -uroot -proot project < /vagrant/sql/project_facilitator_exceptions.sql
+    sudo mysql -uroot -proot project < /vagrant/sql/project_facilitator_days_of_week.sql
+    sudo mysql -uroot -proot project < /vagrant/sql/project_facilitator.sql
+
+    nohup php bin/console server:run *:8000 &
+
+############# React App
+    cd /home/vagrant/sep2019-team1
+    sudo git checkout frontend
+    git reset --hard
+    pwd
+    sudo chmod -R 777 frontend
+    cd /home/vagrant/sep2019-team1/frontend
+    # install node modules
+    sudo npm install --no-bin-links
+    # start app in background
+    npm run build
+    cd /home/vagrant/sep2019-team1/frontend/build
+    serve
+    SHELL
+end

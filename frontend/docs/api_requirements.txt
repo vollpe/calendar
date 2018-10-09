@@ -1,0 +1,101 @@
+1. Get base schedule and exceptions of facilitator
+Request: GET /availability/schedule/{facilitator_id}
+Response: 200 OK
+{
+  "work_days": {
+    "monday": true,
+    "tuesday": true,
+    ...
+    "sunday": false
+  },
+  "working_hours": {
+    "from": "9:00",
+    "to": "18:00"
+  },
+  "exceptions": [
+    /* Single working day: September 25 */
+    {
+      "date_from": "1537822800000",
+      "date_to": "1537822800000",
+      "is_working": true,
+      "working_hours": {
+        "from": "9:00",
+        "to": "18:00"
+      }
+    },
+    /* Not working from Sep 16 to Sep 19 */
+    {
+      "date_from": "1537045200000",
+      "date_to": "1537304400000",
+      "is_working": false
+    },
+    /* Working from 29 Sep to 30 Sep */
+    {
+      "date_from": "1538168400000",
+      "date_to": "1538254800000",
+      "is_working": true,
+      "working_hours": {
+        "from": "4:00",
+        "to": "23:00"
+      }
+    }
+  ]
+}
+Failure: 400 Bad Request
+Example 1:
+{
+  "error": "error_id",
+  "message": "Facilitator with id {facilitator_id} is not found in database."
+}
+
+
+2. POST updated schedule of facilitator
+POST /availability/schedule/{facilitator_id}
+Request body (the same as response #1):
+{
+  "work_days": {
+    "mon": true,
+    "tue": true,
+    "wed": true,
+    ...
+    "sun": false
+  },
+  "working_hours": {
+    "from": "9:00",
+    "to": "18:00"
+  },
+  "exceptions": [
+    /* Single working day: September 25 */
+    {
+      "date_from": "1537822800000",
+      "date_to": "1537822800000",
+      "is_working": true,
+      "working_hours": {
+        "from": "9:00",
+        "to": "18:00"
+      }
+    },
+    /* Not working from Sep 16 to Sep 19 */
+    {
+      "date_from": "1537045200000",
+      "date_to": "1537304400000",
+      "is_working": false
+    },
+    /* Working from 29 Sep to 30 Sep */
+    {
+      "date_from": "1538168400000",
+      "date_to": "1538254800000",
+      "is_working": true,
+      "working_hours": {
+        "from": "1:00",
+        "to": "23:00"
+      }
+    }
+  ]
+}
+Response: 200 OK
+Failure: 400 Bad Request
+{
+  "error": "error_id",
+  "message": "Invalid request: field {field_name} is required."
+}
