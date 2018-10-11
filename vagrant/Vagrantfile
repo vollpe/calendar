@@ -29,7 +29,7 @@ Vagrant.configure("2") do |config|
 
 ############# Common: git clone and checkout
     git init
-    git clone https://l.glasunova:A65b65565@git.syberry.com/syberry-academy-capstone/sep2019-team1.git
+    git clone https://git.syberry.com/syberry-academy-capstone/sep2019-team1.git
     git fetch
     cp -r sep2019-team1 /home/vagrant/backend
 
